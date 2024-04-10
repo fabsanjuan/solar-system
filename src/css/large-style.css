@@ -1,0 +1,20 @@
+/*---------------------Generic Styles-------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+/*---------------------Main Styles-------------------------*/
+#scene-container {
+    width: 100vw;
+    height: 100vh;
+}
