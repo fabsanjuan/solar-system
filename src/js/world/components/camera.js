@@ -7,7 +7,7 @@ function createCamera() {
         0.1,  // near clip
         100,  // far clip
     );
-    camera.position.set(0, 1.5, 20);
+    camera.position.set(0, 1.5, 30);
     return camera;
 }
 export { createCamera };
