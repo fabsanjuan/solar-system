@@ -1,11 +1,12 @@
 import { SphereGeometry, Mesh, MeshStandardMaterial, TextureLoader } from 'three';
+import { getCurrentPlanet } from '/solar-system/src/js/interactivity.js';
 
-let planet = 'Mercury';
+let planet = getCurrentPlanet();
 
-function createMaterial(planet) {
+function createTexture(planet) {
     const textureLoader = new TextureLoader();
     let texturePath;
-
+    
     switch (planet) {
         case "Mercury":
             texturePath = '/solar-system/src/assets/textures/mercuryMap.jpg';
@@ -38,8 +39,13 @@ function createMaterial(planet) {
             texturePath = '/solar-system/src/assets/textures/'; // default case
             break;
     }
-
     const texture = textureLoader.load(texturePath);
+    return texture;
+}
+
+let texture = createTexture(planet);
+
+function createMaterial(planet) {
     const material = new MeshStandardMaterial({
         map: texture,
     })

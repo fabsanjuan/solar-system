@@ -18,3 +18,20 @@ li {
     width: 100vw;
     height: 100vh;
 }
+
+#overlay {
+    position: absolute;
+    display: flex;
+    top: 10%;
+    right: 50%;
+    left: 50%;
+}
+
+button {
+    padding: 1.5rem;
+    margin-right: 2rem;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 2rem;
+}
