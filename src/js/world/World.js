@@ -2,6 +2,7 @@ import { createScene } from './components/scene.js';
 import { createCamera } from './components/camera.js';
 import { createLights } from './components/lights.js';
 import { createSphere } from './components/sphere.js';
+import { getCurrentTexture } from '../planetPicker.js';
 import { createStars } from './components/stars.js';
 
 import { createRenderer } from './systems/renderer.js';
@@ -14,6 +15,7 @@ let scene;
 let camera;
 let renderer;
 let loop;
+let texture;
 
 class World {
     constructor(container) {
@@ -27,13 +29,20 @@ class World {
         const light = createLights();
 
         // Objects
-        const sphere = createSphere();
+        texture = getCurrentTexture(0);
+        this.sphere = createSphere(texture);
         const stars = createStars();
-        loop.updateTables.push(sphere, stars);
-        scene.add(sphere, stars, light);
+        loop.updateTables.push(this.sphere, stars);
+        scene.add(this.sphere, stars, light);
 
         // How does this work?
         const resizer = new Resizer(container, camera, renderer);
+    }
+    updateTexture(currentPos) {
+        texture = getCurrentTexture(currentPos);
+        this.sphere.material.map.dispose();
+        this.sphere.material.map = texture;
+        this.sphere.material.needsUpdate = true;
     }
     render() {
         renderer.render(scene, camera);
