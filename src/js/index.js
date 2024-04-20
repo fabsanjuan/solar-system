@@ -16,7 +16,8 @@ function main() {
         currentPos--;
         // console.log(texture);
         world.updateTexture(currentPos);
-        console.log(currentPos);
+        let name = world.updatePlanetName(currentPos);
+        console.log(name);
     })
     nextBtn.addEventListener('click', () => {
         if (currentPos >= 8) {
@@ -24,6 +25,8 @@ function main() {
         }
         currentPos++;
         world.updateTexture(currentPos);
+        let name = world.updatePlanetName(currentPos);
+        console.log(name);
     })
 }
 main();
