@@ -86,30 +86,32 @@ function createTextureGlow(planet) {
             texturePath = '/solar-system/src/assets/textures/'; // default case
             break;
     }
-    //return texture,glow object.
+    //return texture,glow.
     const texture = textureLoader.load(texturePath);
     const glow = [vertexShader, fragmentShader];    
-    return { texture, glow };
+    return [texture, glow];
 }
 
-function getCurrentTexture(currentPos) {
-    let planet = planets[currentPos];
-    let texture = createTexture(planet);
-    return texture;
-}
-
-function getCurrentGlow(currentPos) {
+// return the planet name, texture, glow object.
+function getCurrentPlanet(currentPos) {
+    //Name.
+    const planet = planets[currentPos];
+    //Holds texture,glow array.
+    const materials = createTextureGlow(planet);
+    //texture.
+    const texture = materials[0];
+    //glow.
+    const glow = materials[1];
+    const vertexShader = glow[0];
+    const fragmentShader = glow[1];
     const glowMaterial = new ShaderMaterial({
         vertexShader,
         fragmentShader,
         blending: AdditiveBlending,
         side: Backside,
     })
+
+    return { planet, texture, glowMaterial };
 }
 
-function getCurrentPlanet(currentPos) {
-    let planetName = planets[currentPos];
-    return planetName;
-}
-
-export { getCurrentTexture, getCurrentPlanet };
+export { getCurrentPlanet };
