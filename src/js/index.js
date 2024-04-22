@@ -7,6 +7,7 @@ let currentPos = 0;
 function main() {
     const container = document.querySelector('#scene-container');
     const world = new World(container);
+    let name = "Mercury";
     world.start();
 
     prevBtn.addEventListener('click', () => {
@@ -15,8 +16,8 @@ function main() {
         }
         currentPos--;
         // console.log(texture);
-        world.updateTexture(currentPos);
-        let name = world.updatePlanetName(currentPos);
+
+        name = world.updateTextureGlow(currentPos);
         console.log(name);
     })
     nextBtn.addEventListener('click', () => {
@@ -24,8 +25,7 @@ function main() {
             return;
         }
         currentPos++;
-        world.updateTexture(currentPos);
-        let name = world.updatePlanetName(currentPos);
+        name = world.updateTextureGlow(currentPos);
         console.log(name);
     })
 }

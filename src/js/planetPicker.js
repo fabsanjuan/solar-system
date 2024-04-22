@@ -1,24 +1,24 @@
-import { TextureLoader, ShaderMaterial, AdditiveBlending, Backside } from 'three';
+import { TextureLoader, ShaderMaterial, AdditiveBlending, BackSide } from 'three';
 
 //Fresnel glsl imports for planet atmospheres.
-import mercuryVertexShader from '/solar-system/src/assets/shaders/';
-import mercuryFragmentShader from '/solar-system/src/assets/shaders/';
-import venusVertexShader from '/solar-system/src/assets/shaders/';
-import venusFragmentShader from '/solar-system/src/assets/shaders/';
-import earthVertexShader from '/solar-system/src/assets/shaders/';
-import earthFragmentShader from '/solar-system/src/assets/shaders/';
-import marsVertexShader from '/solar-system/src/assets/shaders/';
-import marsFragmentShader from '/solar-system/src/assets/shaders/';
-import jupiterVertexShader from '/solar-system/src/assets/shaders/';
-import jupiterFragmentShader from '/solar-system/src/assets/shaders/';
-import saturnVertexShader from '/solar-system/src/assets/shaders/';
-import saturnFragmentShader from '/solar-system/src/assets/shaders/';
-import uranusVertexShader from '/solar-system/src/assets/shaders/';
-import uranusFragmentShader from '/solar-system/src/assets/shaders/';
-import neptuneVertexShader from '/solar-system/src/assets/shaders/';
-import neptuneFragmentShader from '/solar-system/src/assets/shaders/';
-import plutoVertexShader from '/solar-system/src/assets/shaders/';
-import plutoFragmentShader from '/solar-system/src/assets/shaders/';
+import mercuryVertexShader from '/solar-system/src/assets/shaders/mercuryVertexShader.glsl';
+import mercuryFragmentShader from '/solar-system/src/assets/shaders/mercuryFragmentShader.glsl';
+import venusVertexShader from '/solar-system/src/assets/shaders/venusVertexShader.glsl';
+import venusFragmentShader from '/solar-system/src/assets/shaders/venusFragmentShader.glsl';
+import earthVertexShader from '/solar-system/src/assets/shaders/earthVertexShader.glsl';
+import earthFragmentShader from '/solar-system/src/assets/shaders/earthFragmentShader.glsl';
+import marsVertexShader from '/solar-system/src/assets/shaders/marsVertexShader.glsl';
+import marsFragmentShader from '/solar-system/src/assets/shaders/marsFragmentShader.glsl';
+import jupiterVertexShader from '/solar-system/src/assets/shaders/jupiterVertexShader.glsl';
+import jupiterFragmentShader from '/solar-system/src/assets/shaders/jupiterFragmentShader.glsl';
+import saturnVertexShader from '/solar-system/src/assets/shaders/saturnVertexShader.glsl';
+import saturnFragmentShader from '/solar-system/src/assets/shaders/saturnFragmentShader.glsl';
+import uranusVertexShader from '/solar-system/src/assets/shaders/uranusVertexShader.glsl';
+import uranusFragmentShader from '/solar-system/src/assets/shaders/uranusFragmentShader.glsl';
+import neptuneVertexShader from '/solar-system/src/assets/shaders/neptuneVertexShader.glsl';
+import neptuneFragmentShader from '/solar-system/src/assets/shaders/neptuneFragmentShader.glsl';
+import plutoVertexShader from '/solar-system/src/assets/shaders/plutoVertexShader.glsl';
+import plutoFragmentShader from '/solar-system/src/assets/shaders/plutoFragmentShader.glsl';
 
 
 
@@ -108,7 +108,7 @@ function getCurrentPlanet(currentPos) {
         vertexShader,
         fragmentShader,
         blending: AdditiveBlending,
-        side: Backside,
+        side: BackSide,
     })
 
     return { planet, texture, glowMaterial };

@@ -37,16 +37,15 @@ class World {
         planetName = planetInfo.planet;
         texture = planetInfo.texture;
         glowMaterial = planetInfo.glowMaterial;
-        planetGroup = createPlanet(texture, glowMaterial);
-        // this.sphere = createSphere(texture);
+        this.planetGroup = createPlanet(texture, glowMaterial);
         const stars = createStars();
-        loop.updateTables.push(planetGroup, stars);
-        scene.add(planetGroup, stars, light);
+        loop.updateTables.push(this.planetGroup, stars);
+        scene.add(this.planetGroup, stars, light);
 
         // How does this work?
         const resizer = new Resizer(container, camera, renderer);
     }
-    updateTexture(currentPos) {
+    updateTextureGlow(currentPos) {
         planetInfo = getCurrentPlanet(currentPos);
         planetName = planetInfo.planet;
         texture = planetInfo.texture;
