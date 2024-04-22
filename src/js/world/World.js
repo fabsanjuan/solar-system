@@ -1,8 +1,8 @@
 import { createScene } from './components/scene.js';
 import { createCamera } from './components/camera.js';
 import { createLights } from './components/lights.js';
-import { createSphere } from './components/sphere.js';
-import { getCurrentTexture, getCurrentPlanet } from '../planetPicker.js';
+import { createPlanet } from './components/sphere.js';
+import { getCurrentPlanet } from '../planetPicker.js';
 import { createStars } from './components/stars.js';
 
 import { createRenderer } from './systems/renderer.js';
@@ -10,13 +10,17 @@ import { Resizer } from './systems/Resizer.js';
 import { Loop } from './systems/Loop.js';
 
 
-// private variable implementation.
+//Scene variables.
 let scene;
 let camera;
 let renderer;
 let loop;
-let texture;
+//Planet variables.
+let planetInfo;
 let planetName;
+let texture;
+let glowMaterial;
+let planetGroup;
 
 class World {
     constructor(container) {
@@ -25,35 +29,39 @@ class World {
         camera = createCamera();
         renderer = createRenderer();
         loop = new Loop(scene, camera, renderer);
-
         container.append(renderer.domElement);
         const light = createLights();
 
         // Objects
-        //planetsGroup = new Group()
-        texture = getCurrentTexture(0);
-        //glowMaterial = getCurrentTexture[1];
-        this.sphere = createSphere(texture);
+        planetInfo = getCurrentPlanet(0);
+        planetName = planetInfo.planet;
+        texture = planetInfo.texture;
+        glowMaterial = planetInfo.glowMaterial;
+        planetGroup = createPlanet(texture, glowMaterial);
+        // this.sphere = createSphere(texture);
         const stars = createStars();
-        loop.updateTables.push(this.sphere, stars);
-        //scene.add(planetGroup);
-        //planetGroup.add(this.sphere, glowMaterial);
-
-        scene.add(this.sphere, stars, light);
+        loop.updateTables.push(planetGroup, stars);
+        scene.add(planetGroup, stars, light);
 
         // How does this work?
         const resizer = new Resizer(container, camera, renderer);
     }
     updateTexture(currentPos) {
-        texture = getCurrentTexture(currentPos);
-        // Get current mesh and dispose old
-        this.sphere.material.map.dispose();
-        this.sphere.material.map = texture;
-        // add new mesh.
-        this.sphere.material.needsUpdate = true;
-    }
-    updatePlanetName(currentPos) {
-        planetName = getCurrentPlanet(currentPos);
+        planetInfo = getCurrentPlanet(currentPos);
+        planetName = planetInfo.planet;
+        texture = planetInfo.texture;
+        glowMaterial = planetInfo.glowMaterial;
+        
+        const mainSphere = this.planetGroup.children[0];
+        const glowMesh = this.planetGroup.children[1];
+
+        mainSphere.material.map.dispose();
+        mainSphere.material.map = texture;
+        mainSphere.material.needsUpdate = true;
+
+        glowMesh.material = glowMaterial;
+        glowMesh.material.needsUpdate = true;
+
         return planetName;
     }
     render() {
