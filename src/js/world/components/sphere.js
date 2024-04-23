@@ -7,11 +7,13 @@ function createPlanet(texture, glowMaterial) {
     //Standard material mesh.
     const material = new MeshStandardMaterial({ map: texture });
     const sphere = new Mesh(geometry, material);
-    sphere.position.set(0, -1, 5);
+
+    sphere.position.set(0, -1, 0);
 
     //fresnel mesh.
     const glowMesh = new Mesh(geometry, glowMaterial);
     glowMesh.scale.set(1.1, 1.1, 1.1);
+    glowMesh.position.set(0, -1, 0);
     
     //Group meshes.
     const planetGroup = new Group();
