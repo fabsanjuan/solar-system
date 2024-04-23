@@ -2,5 +2,5 @@
 
  void main() {
     vertexNormal = normalize(normalMatrix * normal);
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 0.9);
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 0.98);
 }

@@ -1,5 +1,6 @@
 import { World } from './world/World.js';
 
+const heading = document.getElementById('main-heading');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 let currentPos = 0;
@@ -8,6 +9,7 @@ function main() {
     const container = document.querySelector('#scene-container');
     const world = new World(container);
     let name = "Mercury";
+    heading.textContent = name;
     world.start();
 
     prevBtn.addEventListener('click', () => {
@@ -15,10 +17,8 @@ function main() {
             return;
         }
         currentPos--;
-        // console.log(texture);
-
         name = world.updateTextureGlow(currentPos);
-        console.log(name);
+        heading.textContent = name;
     })
     nextBtn.addEventListener('click', () => {
         if (currentPos >= 8) {
@@ -26,7 +26,7 @@ function main() {
         }
         currentPos++;
         name = world.updateTextureGlow(currentPos);
-        console.log(name);
+        heading.textContent = name;
     })
 }
 main();

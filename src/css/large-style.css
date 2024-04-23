@@ -23,8 +23,8 @@ li {
     position: absolute;
     display: flex;
     top: 10%;
-    right: 50%;
-    left: 50%;
+    right: 33%;
+    /* left: 50%; */
 }
 
 button {
@@ -34,4 +34,11 @@ button {
     background: rgba(0, 0, 0, 0.2);
     color: white;
     font-size: 2rem;
+}
+
+#main-heading {
+    padding: 0 2rem;
+    color: white;
+    font-size: 4rem;
+    margin-left: -2rem;
 }

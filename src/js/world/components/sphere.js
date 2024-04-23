@@ -22,7 +22,7 @@ function createPlanet(texture, glowMaterial) {
 
     // Set planet animation.
     planetGroup.tick = (delta) => {
-        planetGroup.rotation.y += (0.2 * delta);
+        planetGroup.rotation.y += (0.1 * delta);
     }
 
     return planetGroup;   
