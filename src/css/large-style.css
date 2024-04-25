@@ -22,9 +22,10 @@ li {
 #overlay {
     position: absolute;
     display: flex;
+    justify-content: center;
+    width: 90%;
     top: 10%;
-    right: 33%;
-    /* left: 50%; */
+    left: 6%;
 }
 
 button {

@@ -39,6 +39,9 @@ class World {
         glowMaterial = planetInfo.glowMaterial;
         this.planetGroup = createPlanet(texture, glowMaterial);
         const stars = createStars();
+        //TODO: Conditional statement for Earth.
+            // if Earth, earthMesh = getMoreTextures()
+            // this.planetGroup.add(earthMesh)
         loop.updateTables.push(this.planetGroup, stars);
         scene.add(this.planetGroup, stars, light);
 

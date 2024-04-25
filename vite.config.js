@@ -10,11 +10,11 @@ export default defineConfig({
     },
     root: './',
     base: '/solar-system',
-    build: {
-        rollupOptions: {
-            external: ['three'],
-        }
-    },
+    // build: {
+    //     rollupOptions: {
+    //         external: ['three'],
+    //     }
+    // },
     optimizeDeps: {
         include: ['three']
     },

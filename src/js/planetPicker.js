@@ -21,7 +21,6 @@ import plutoVertexShader from '/solar-system/src/assets/shaders/plutoVertexShade
 import plutoFragmentShader from '/solar-system/src/assets/shaders/plutoFragmentShader.glsl';
 
 
-
 // Function that handles planet switching.
 // document.addEventListener('DOMContentLoaded',
 const planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];

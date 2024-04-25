@@ -30,3 +30,5 @@ function main() {
     })
 }
 main();
+
+//TODO: Fix the z index of the star array. 
