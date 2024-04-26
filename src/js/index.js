@@ -1,4 +1,5 @@
 import { World } from './world/World.js';
+// import { onMouseHover } from './world/systems/raycaster.js';
 
 const heading = document.getElementById('main-heading');
 const prevBtn = document.getElementById('prevBtn');
@@ -11,6 +12,8 @@ function main() {
     let name = "Mercury";
     heading.textContent = name;
     world.start();
+
+    window.addEventListener('mousemove', world.onMouseMove);
 
     prevBtn.addEventListener('click', () => {
         if (currentPos <= 0) {

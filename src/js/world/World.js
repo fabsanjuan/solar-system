@@ -8,6 +8,7 @@ import { createStars } from './components/stars.js';
 import { createRenderer } from './systems/renderer.js';
 import { Resizer } from './systems/Resizer.js';
 import { Loop } from './systems/Loop.js';
+import { createRaycaster } from './systems/raycaster.js';
 
 
 //Scene variables.
@@ -15,12 +16,13 @@ let scene;
 let camera;
 let renderer;
 let loop;
+let raycaster;
 //Planet variables.
 let planetInfo;
 let planetName;
 let texture;
 let glowMaterial;
-let planetGroup;
+
 
 class World {
     constructor(container) {
@@ -31,7 +33,7 @@ class World {
         loop = new Loop(scene, camera, renderer);
         container.append(renderer.domElement);
         const light = createLights();
-
+        
         // Objects
         planetInfo = getCurrentPlanet(0);
         planetName = planetInfo.planet;
@@ -47,6 +49,29 @@ class World {
 
         // How does this work?
         const resizer = new Resizer(container, camera, renderer);
+    }
+    render() {
+        renderer.render(scene, camera);
+    }
+    start() {
+        loop.start();
+    }
+    stop() {
+        loop.stop();
+    }
+    onMouseMove(e) {      
+        // Raycaster
+        raycaster = createRaycaster(e, camera);
+        const planetObject = this.planetGroup.children;
+        const intersects = raycaster.intersectObjects(planetObject);
+        if (intersects.length > 0) {
+            const intersected = intersects[0].object;
+            console.log('show');
+            //showOverlay();
+        } else {
+            console.log('hide');
+            //hideOverlay();
+        }
     }
     updateTextureGlow(currentPos) {
         planetInfo = getCurrentPlanet(currentPos);
@@ -65,15 +90,6 @@ class World {
         glowMesh.material.needsUpdate = true;
 
         return planetName;
-    }
-    render() {
-        renderer.render(scene, camera);
-    }
-    start() {
-        loop.start();
-    }
-    stop() {
-        loop.stop();
     }
 }
 
