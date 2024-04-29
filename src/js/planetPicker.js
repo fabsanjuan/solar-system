@@ -1,24 +1,24 @@
 import { TextureLoader, ShaderMaterial, AdditiveBlending, BackSide } from 'three';
 
 //Fresnel glsl imports for planet atmospheres.
-import mercuryVertexShader from '/solar-system/src/assets/shaders/mercuryVertexShader.glsl';
-import mercuryFragmentShader from '/solar-system/src/assets/shaders/mercuryFragmentShader.glsl';
-import venusVertexShader from '/solar-system/src/assets/shaders/venusVertexShader.glsl';
-import venusFragmentShader from '/solar-system/src/assets/shaders/venusFragmentShader.glsl';
-import earthVertexShader from '/solar-system/src/assets/shaders/earthVertexShader.glsl';
-import earthFragmentShader from '/solar-system/src/assets/shaders/earthFragmentShader.glsl';
-import marsVertexShader from '/solar-system/src/assets/shaders/marsVertexShader.glsl';
-import marsFragmentShader from '/solar-system/src/assets/shaders/marsFragmentShader.glsl';
-import jupiterVertexShader from '/solar-system/src/assets/shaders/jupiterVertexShader.glsl';
-import jupiterFragmentShader from '/solar-system/src/assets/shaders/jupiterFragmentShader.glsl';
-import saturnVertexShader from '/solar-system/src/assets/shaders/saturnVertexShader.glsl';
-import saturnFragmentShader from '/solar-system/src/assets/shaders/saturnFragmentShader.glsl';
-import uranusVertexShader from '/solar-system/src/assets/shaders/uranusVertexShader.glsl';
-import uranusFragmentShader from '/solar-system/src/assets/shaders/uranusFragmentShader.glsl';
-import neptuneVertexShader from '/solar-system/src/assets/shaders/neptuneVertexShader.glsl';
-import neptuneFragmentShader from '/solar-system/src/assets/shaders/neptuneFragmentShader.glsl';
-import plutoVertexShader from '/solar-system/src/assets/shaders/plutoVertexShader.glsl';
-import plutoFragmentShader from '/solar-system/src/assets/shaders/plutoFragmentShader.glsl';
+import mercuryVertexShader from '../../src/assets/shaders/mercuryVertexShader.glsl';
+import mercuryFragmentShader from '../../src/assets/shaders/mercuryFragmentShader.glsl';
+import venusVertexShader from '../../src/assets/shaders/venusVertexShader.glsl';
+import venusFragmentShader from '../../src/assets/shaders/venusFragmentShader.glsl';
+import earthVertexShader from '../../src/assets/shaders/earthVertexShader.glsl';
+import earthFragmentShader from '../../src/assets/shaders/earthFragmentShader.glsl';
+import marsVertexShader from '../../src/assets/shaders/marsVertexShader.glsl';
+import marsFragmentShader from '../../src/assets/shaders/marsFragmentShader.glsl';
+import jupiterVertexShader from '../../src/assets/shaders/jupiterVertexShader.glsl';
+import jupiterFragmentShader from '../../src/assets/shaders/jupiterFragmentShader.glsl';
+import saturnVertexShader from '../../src/assets/shaders/saturnVertexShader.glsl';
+import saturnFragmentShader from '../../src/assets/shaders/saturnFragmentShader.glsl';
+import uranusVertexShader from '../../src/assets/shaders/uranusVertexShader.glsl';
+import uranusFragmentShader from '../../src/assets/shaders/uranusFragmentShader.glsl';
+import neptuneVertexShader from '../../src/assets/shaders/neptuneVertexShader.glsl';
+import neptuneFragmentShader from '../../src/assets/shaders/neptuneFragmentShader.glsl';
+import plutoVertexShader from '../../src/assets/shaders/plutoVertexShader.glsl';
+import plutoFragmentShader from '../../src/assets/shaders/plutoFragmentShader.glsl';
 
 
 // Function that handles planet switching.
@@ -37,52 +37,52 @@ function createTextureGlow(planet) {
     //Select paths for texture & glow.
     switch (planet) {
         case "Mercury":
-            texturePath = '/solar-system/src/assets/textures/mercuryMap.jpg';
+            texturePath = 'solar-system/textures/mercuryMap.jpg';
             vertexShader = mercuryVertexShader;
             fragmentShader = mercuryFragmentShader;
             break;
         case "Venus":
-            texturePath = '/solar-system/src/assets/textures/venusMap.jpg';
+            texturePath = 'solar-system/textures/venusMap.jpg';
             vertexShader = venusVertexShader;
             fragmentShader = venusFragmentShader;
             break;
         case "Earth":
-            texturePath = '/solar-system/src/assets/textures/earthMap.jpg';
+            texturePath = 'solar-system/textures/earthMap.jpg';
             vertexShader = earthVertexShader;
             fragmentShader = earthFragmentShader;
             break;
         case "Mars":
-            texturePath = '/solar-system/src/assets/textures/marsMap.jpg';
+            texturePath = 'solar-system/textures/marsMap.jpg';
             vertexShader = marsVertexShader;
             fragmentShader = marsFragmentShader;
             break;
         case "Jupiter":
-            texturePath = '/solar-system/src/assets/textures/jupiterMap.jpg';
+            texturePath = 'solar-system/textures/jupiterMap.jpg';
             vertexShader = jupiterVertexShader;
             fragmentShader = jupiterFragmentShader;
             break;
         case "Saturn":
-            texturePath = '/solar-system/src/assets/textures/saturnMap.jpg';
+            texturePath = 'solar-system/textures/saturnMap.jpg';
             vertexShader = saturnVertexShader;
             fragmentShader = saturnFragmentShader;
             break;
         case "Uranus":
-            texturePath = '/solar-system/src/assets/textures/uranusMap.jpg';
+            texturePath = 'solar-system/textures/uranusMap.jpg';
             vertexShader = uranusVertexShader;
             fragmentShader = uranusFragmentShader;
             break;
         case "Neptune":
-            texturePath = '/solar-system/src/assets/textures/neptuneMap.jpg';
+            texturePath = 'solar-system/textures/neptuneMap.jpg';
             vertexShader = neptuneVertexShader;
             fragmentShader = neptuneFragmentShader;
             break;
         case "Pluto":
-            texturePath = '/solar-system/src/assets/textures/plutoMap.jpg';
+            texturePath = 'solar-system/textures/plutoMap.jpg';
             vertexShader = plutoVertexShader;
             fragmentShader = plutoFragmentShader;
             break;
         default:
-            texturePath = '/solar-system/src/assets/textures/'; // default case
+            texturePath = '../../textures/'; // default case
             break;
     }
     //return texture,glow.

@@ -13,7 +13,7 @@ function main() {
     heading.textContent = name;
     world.start();
 
-    window.addEventListener('mousemove', world.onMouseMove);
+    // window.addEventListener('mousemove', world.onMouseMove);
 
     prevBtn.addEventListener('click', () => {
         if (currentPos <= 0) {
