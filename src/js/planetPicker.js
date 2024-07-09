@@ -37,52 +37,52 @@ function createTextureGlow(planet) {
     //Select paths for texture & glow.
     switch (planet) {
         case "Mercury":
-            texturePath = 'solar-system/textures/mercuryMap.jpg';
+            texturePath = './textures/mercuryMap.jpg';
             vertexShader = mercuryVertexShader;
             fragmentShader = mercuryFragmentShader;
             break;
         case "Venus":
-            texturePath = 'solar-system/textures/venusMap.jpg';
+            texturePath = './textures/venusMap.jpg';
             vertexShader = venusVertexShader;
             fragmentShader = venusFragmentShader;
             break;
         case "Earth":
-            texturePath = 'solar-system/textures/earthMap.jpg';
+            texturePath = './textures/earthMap.jpg';
             vertexShader = earthVertexShader;
             fragmentShader = earthFragmentShader;
             break;
         case "Mars":
-            texturePath = 'solar-system/textures/marsMap.jpg';
+            texturePath = './textures/marsMap.jpg';
             vertexShader = marsVertexShader;
             fragmentShader = marsFragmentShader;
             break;
         case "Jupiter":
-            texturePath = 'solar-system/textures/jupiterMap.jpg';
+            texturePath = './textures/jupiterMap.jpg';
             vertexShader = jupiterVertexShader;
             fragmentShader = jupiterFragmentShader;
             break;
         case "Saturn":
-            texturePath = 'solar-system/textures/saturnMap.jpg';
+            texturePath = './textures/saturnMap.jpg';
             vertexShader = saturnVertexShader;
             fragmentShader = saturnFragmentShader;
             break;
         case "Uranus":
-            texturePath = 'solar-system/textures/uranusMap.jpg';
+            texturePath = './textures/uranusMap.jpg';
             vertexShader = uranusVertexShader;
             fragmentShader = uranusFragmentShader;
             break;
         case "Neptune":
-            texturePath = 'solar-system/textures/neptuneMap.jpg';
+            texturePath = './textures/neptuneMap.jpg';
             vertexShader = neptuneVertexShader;
             fragmentShader = neptuneFragmentShader;
             break;
         case "Pluto":
-            texturePath = 'solar-system/textures/plutoMap.jpg';
+            texturePath = './textures/plutoMap.jpg';
             vertexShader = plutoVertexShader;
             fragmentShader = plutoFragmentShader;
             break;
         default:
-            texturePath = '../../textures/'; // default case
+            texturePath = './textures/'; // default case
             break;
     }
     //return texture,glow.
